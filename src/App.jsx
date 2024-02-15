@@ -6,7 +6,9 @@ const App = () => {
   return (
     <NewsProvider>
       <Header />
-      <NewsContainer />
+      <main className="my-10 lg:my-14">
+        <NewsContainer />
+      </main>
     </NewsProvider>
   );
 };
