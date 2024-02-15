@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
+import useNewsContext from "./useNewsContext";
 
-const useNewsQuery = (categoryName = "") => {
+const useNewsQuery = () => {
   const [articles, setArticles] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-
-  const URL = !categoryName
+  const { category } = useNewsContext();
+  const URL = !category
     ? "http://localhost:8000/v2/top-headlines"
-    : `http://localhost:8000/v2/top-headlines/?category=${categoryName.toLowerCase()}`;
+    : `http://localhost:8000/v2/top-headlines/?category=${category.toLowerCase()}`;
 
   useEffect(() => {
     let ignore = false;
